@@ -20,10 +20,10 @@ dependencies {
     embed(kotlin("stdlib-jdk8"))
     implementation("org.spongepowered:spongeapi:7.0.0")
     implementation("com.squareup.retrofit2:retrofit:2.5.0")
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
+    implementation("com.squareup.retrofit2:converter-gson:2.5.0")
+    implementation("com.squareup.retrofit2:adapter-rxjava2:2.5.0")
+    implementation("io.reactivex.rxjava2:rxkotlin:2.2.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:3.12.0")
 }
 
 val jar: Jar by tasks
@@ -31,4 +31,9 @@ jar.apply {
     from(configurations["embed"].map {
         if (it.isDirectory) it as Any else zipTree(it)
     })
+}
+
+val compileKotlin: KotlinCompile by tasks
+compileKotlin.kotlinOptions {
+    jvmTarget = "1.8"
 }
