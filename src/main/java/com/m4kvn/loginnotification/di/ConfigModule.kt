@@ -1,5 +1,6 @@
 package com.m4kvn.loginnotification.di
 
+import com.m4kvn.loginnotification.Config
 import ninja.leaping.configurate.ConfigurationNode
 import ninja.leaping.configurate.hocon.HoconConfigurationLoader
 import org.koin.core.KoinContext
@@ -30,5 +31,7 @@ class ConfigModule(
                     configLoader.load() else
                     configLoader.createEmptyNode()
             }
+
+            single { Config() }
         }
 }
