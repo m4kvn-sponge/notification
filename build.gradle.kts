@@ -10,6 +10,7 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 val embed by configurations.creating {
@@ -24,6 +25,7 @@ dependencies {
     implementation("com.squareup.retrofit2:adapter-rxjava2:2.5.0")
     implementation("io.reactivex.rxjava2:rxkotlin:2.2.0")
     implementation("com.squareup.okhttp3:logging-interceptor:3.12.0")
+    implementation("org.koin:koin-core:1.0.2")
 }
 
 val jar: Jar by tasks
